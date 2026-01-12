@@ -1,0 +1,5 @@
+@define-color background-color rgba(30, 30, 46, 0.15); /* translúcido equilibrado */
+@define-color border-color rgba(255, 255, 255, 0.18);  /* borde glass */
+@define-color label rgba(255, 255, 255, 0.9);
+@define-color image rgba(255, 255, 255, 0.9);
+@define-color progress rgba(255, 255, 255, 0.85);

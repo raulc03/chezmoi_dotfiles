@@ -1,0 +1,46 @@
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+source ~/.local/share/omarchy/default/bash/rc
+
+# Add your own exports, aliases, and functions here.
+#
+# Make an alias for invoking commands you use constantly
+# alias p='python'
+alias c='clear'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# Always mkdir a path (this doesn't inhibit functionality to make a single dir)
+alias mkdir='mkdir -p'
+
+# Micromamba/Mamba/Conda
+alias mm='micromamba'
+alias jlstart='setsid jupyter lab > /dev/null 2>&1 &'
+alias jlstop="pkill -f 'jupyter-lab'"
+alias tx='start_tmux'
+alias zoom='v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute=140'
+alias n='nvim'
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/usr/bin/micromamba'
+export MAMBA_ROOT_PREFIX='/home/raci03/.local/share/mamba'
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2>/dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__mamba_setup"
+else
+  alias micromamba="$MAMBA_EXE" # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+eval "$(starship init bash)"
+
+eval "$(zoxide init --cmd cd bash)"
+. "$HOME/.cargo/env"
