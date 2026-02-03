@@ -37,6 +37,7 @@ window#waybar {
 #memory,
 #battery,
 #pulseaudio,
+#custom-mic,
 #custom-omarchy
 #custom-screenrecording-indicator,
 #custom-update {
@@ -94,4 +95,13 @@ tooltip {
 
 #custom-voxtype.recording {
   color: #a55555;
+}
+
+#custom-mic.muted {
+  color: #ff0000;
+  font-size: 16px;
+}
+
+#custom-mic.unmuted {
+  color: #ffffff;
 }
